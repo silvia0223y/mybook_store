@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :find_books, only: [:show, :edit, :update]
+  before_action :find_books, only: [:show, :edit, :update, :destroy]
   def index
     @books = Book.all
   end
@@ -25,6 +25,10 @@ class BooksController < ApplicationController
       else
         render :edit
       end
+  end
+  def destroy
+      @book.destroy if @book
+      redirect_to books_path, notice: "書本資料已刪除!"
   end
   def book_params
     params.require(:book).permit(:name, :introduction, :writer_name, :price)
