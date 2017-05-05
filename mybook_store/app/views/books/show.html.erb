@@ -1,0 +1,23 @@
+<h1>圖書館管理系統</h1>
+<table>
+  <thead>
+    <tr>
+      <td>書本名稱</td>
+      <td>介紹</td>
+      <td>作者</td>
+      <td>價錢</td>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @book.name %></td>
+      <td><%= @book.introduction %></td>
+      <td><%= @book.writer_name %></td>
+      <td><%= @book.price %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<%= link_to '回書本列表', books_path %>

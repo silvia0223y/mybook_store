@@ -9,12 +9,13 @@
       <td>介紹</td>
       <td>作者</td>
       <td>價錢</td>
+      
     </tr>
   </thead>
   <tbody>
     <% @books.each do |book| %>
     <tr>
-      <td><%= book.name %></td>
+      <td><%= link_to book.name, book_path(book) %></td>
       <td><%= book.introduction %></td>
       <td><%= book.writer_name %></td>
       <td><%= book.price %></td>
