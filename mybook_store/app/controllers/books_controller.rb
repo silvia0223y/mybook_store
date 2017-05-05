@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :find_books, :only => :show
+  before_action :find_books, only: [:show, :edit, :update]
   def index
     @books = Book.all
   end
@@ -16,7 +16,16 @@ class BooksController < ApplicationController
         render :new
       end
   end
-
+  def edit
+  end
+  
+  def update
+      if @book.update(book_params)
+        redirect_to books_path, notice: "資料更新成功!"
+      else
+        render :edit
+      end
+  end
   def book_params
     params.require(:book).permit(:name, :introduction, :writer_name, :price)
   end
